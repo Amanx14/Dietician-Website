@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Links() {
+
+  const navigate = useNavigate();
   
   return (
         <>
@@ -82,6 +84,10 @@ function Links() {
             <button
               className="flex items-center py-2 text-lg hover:text-indigo-700"
               to="logout"
+              onClick={() =>  {
+                localStorage.removeItem("dietToken");
+                navigate("/");
+              }}
             >
               <i className="ai ai-arrow-square-out-fill mr-3 text-2xl text-orange-400"></i>
               Log Out

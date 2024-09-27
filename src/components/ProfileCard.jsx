@@ -10,9 +10,9 @@ const ProfileCard = () => {
         <div className="h-auto w-full border bg-white shadow-lg dark:border-0 dark:bg-slate-900 md:w-2/4 lg:w-1/4">
           <div className="p-6">
             <div className="max-w-100 mb-6 flex h-64 items-center justify-center rounded-xl bg-gray-300 dark:bg-slate-950">
-            <img src={arsh2} alt="arsh pic" className="h-[100%] rounded-2xl lg:mt-1 p-3 xl:p-0 xl:mt-5 lg:h-auto"  />
+            <img src={arsh2} alt="arsh pic" className="h-[100%] rounded-2xl lg:mt-5 p-3 xl:p-0 xl:mt-[25%] lg:h-auto"   />
             </div>
-            <h2 className="mb-2 mt-16 text-2xl font-bold dark:text-white xl:mt-9">
+            <h2 className="mb-2 mt-16 text-2xl font-bold dark:text-white xl:mt-[30%]">
             Aman Kumar
             </h2>
             <h3 className="mb-4 text-lg text-gray-600 dark:text-slate-300">

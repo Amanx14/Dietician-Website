@@ -49,7 +49,7 @@ const Navbar = () => {
               height="75"
               alt="Fit Logo"
             />
-            <div className="mt-3 text-3xl text-red-500 font-bold"><i>Arsh-Sandhu</i></div>
+            <div className="mt-3 text-3xl text-red-500 font-bold"><i>Amanx14</i></div>
           </a>
         </div>
         <label

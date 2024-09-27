@@ -162,6 +162,33 @@ function Login() {
                       Login to Dashboard
                     </button>
                   </div>
+                  <div className="flex gap-4">
+                    <button
+                      type="submit"
+                      className="inline-flex mx-0 w-2/4 items-center justify-center rounded-md bg-indigo-800 px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-gradient-to-r hover:from-purple-800 hover:to-indigo-800"
+                      onClick={() => {
+                        setFormData({
+                          email: "amanx14@fitness.com",
+                          password: "admin@123"
+                        });
+                      }}
+                    >
+                      Guest Admin Login
+                    </button>
+
+                    <button
+                      type="submit"
+                      className="inline-flex w-2/4 items-center justify-center rounded-md bg-indigo-800 px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-gradient-to-r hover:from-purple-800 hover:to-indigo-800"
+                      onClick={() => {
+                        setFormData({
+                          email: "amannkumar14@gmail.com",
+                          password: "12345678"
+                        });
+                      }}
+                    >
+                      Guest User Login
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>

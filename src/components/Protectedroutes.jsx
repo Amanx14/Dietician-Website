@@ -14,10 +14,10 @@ export default function Protectedroutes({ children }){
 
     switch(currentPath){
         case "dashboard":
-            return (token!==null && decoded.isAdmin === true && decoded.isUser === false) ? children : navigate("/auth/login");
+            return (token!==null && decoded.userData.isAdmin === true && decoded.userData.isUser === false) ? children : navigate("/auth/login");
 
         case "fitness":
-            return (token!==null && decoded.isAdmin === false && decoded.isUser === true) ? children : navigate("/");
+            return (token!==null && decoded.userData.isAdmin === false && decoded.userData.isUser === true) ? children : navigate("/");
         default:
             navigate("/")
             return ; 

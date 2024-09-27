@@ -100,7 +100,7 @@ function UserDetailForm() {
     const completeUserData = {...location.state.key, ...formData}
     console.log("complete user data is", completeUserData);
 
-    const sendUserData = await fetch("https://dietician-backend-iryh.onrender.com/users/addUser",{
+    const sendUserData = await fetch("https://dietician-engine.onrender.com/users/addUser",{
         method:"POST",
         headers:{
           "Content-Type":"application/json"

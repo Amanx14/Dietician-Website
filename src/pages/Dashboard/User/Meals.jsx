@@ -77,12 +77,12 @@ const Meals = () => {
         async function fetchData(){
             const decoded = decodeJwt(localStorage.getItem("dietToken"));
             console.log("decoded in meals", decoded);
-            const response = await fetch("https://dietician-backend-iryh.onrender.com/users/getUserDiet", {
+            const response = await fetch("https://dietician-engine.onrender.com/users/getUserDiet", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({email:decoded.email}),
+                body: JSON.stringify({email:decoded.userData.email}),
                  // Include credentials (cookies) in the request
               })
 

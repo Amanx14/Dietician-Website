@@ -33,7 +33,7 @@ function Login() {
       }
 
       // Send POST request to backend for login
-      const response = await fetch("https://dietician-backend-iryh.onrender.com/login", {
+      const response = await fetch("https://dietician-engine.onrender.com/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,14 +57,6 @@ function Login() {
         const decoded = decodeJwt(localStorage.getItem("dietToken"));
 
         console.log("decoded is", decoded)
-
-        // if(decoded.isAdmin === true && decoded.isUser === false){
-        //   dispatch(adminLoginSuccess())
-        //   navigate('/dashboard/admin')
-        // }else{
-        //   dispatch(userLoginSuccess());
-        //   navigate('/')
-        // }
 
         navigate('/')
 

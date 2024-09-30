@@ -4,15 +4,9 @@ import { toast, ToastContainer } from "react-toastify";
 import Meal from './Meal';
 
 const SingleUser = () => {
-    console.log("Single user component ren");
     let location = useLocation();
     const [totalMeals, setTotalMeals] = useState([]);
     const [recommendedMeal, setrecommendedMeal] = useState([]);
-
-    console.log("location is",location)
-
-    console.log("total meal is", totalMeals);
-    console.log("Now updated recommended meal is", recommendedMeal);
 
     async function handleRecommendedDiet(){
         const response = await fetch("https://dietician-engine.onrender.com/users/addUserDiet",{
@@ -34,7 +28,6 @@ const SingleUser = () => {
     }
 
     function addIngredients(mealIndex, newIngredientObject) {
-        console.log("addIngredients function is called and new recommendedMeal is", recommendedMeal);
         let newArr = [...recommendedMeal];
         newArr[mealIndex].ingredients.push(newIngredientObject);
         setrecommendedMeal(newArr);
@@ -44,18 +37,12 @@ const SingleUser = () => {
         let newArr = [...recommendedMeal];
         newArr[mealIndex].ingredients[ingredientIndex] = newIngredientObject;
         setrecommendedMeal(newArr);
-
     }
 
-
-    //const [selectedOption, setSelectedOption] = useState('');
-
     const handleSelectChange = (e) => {
-        console.log(e.target.value);
         const selectedMeal = totalMeals.filter((meal) => meal.meal_name === e.target.value)
 
         setrecommendedMeal(recommendedMeal.concat(selectedMeal));
-        console.log("recommended meals are", recommendedMeal);
     };
 
     const height = location.state.userData.height / 100
@@ -63,10 +50,8 @@ const SingleUser = () => {
 
     useEffect(() => {
         const fetchMealData = async () => {
-            console.log("Diet type in single user is", location.state.userData.dietType)
             const response = await fetch(`https://dietician-engine.onrender.com/diet/getMeal?meal_type=${location.state.userData.dietType}`)
             const jsonResponse = await response.json();
-            console.log("total meals are", jsonResponse);
             setTotalMeals(jsonResponse.data);
         }
         fetchMealData();
@@ -96,7 +81,7 @@ const SingleUser = () => {
                 </div>
                 <div className="flex flex-wrap justify-center">
                     <img
-                        src="https://source.unsplash.com/random/?man,face,dp"
+                        src="https://images.unsplash.com/photo-1640960543409-dbe56ccc30e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHVzZXJ8ZW58MHx8MHx8fDA%3D"
                         className="h-28 w-28 rounded-full object-cover my-auto"
                         alt=""
                     />
@@ -232,9 +217,9 @@ const SingleUser = () => {
                     <h2 className="text-xl dark:text-slate-300">Progress Pictures</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <img src="https://source.unsplash.com/random/400x600/?muscles,man" className="rounded-lg" alt="" />
-                    <img src="https://source.unsplash.com/random/400x600/?muscleman" className="rounded-lg" alt="" />
-                    <img src="https://source.unsplash.com/random/400x600/?muscles" className="rounded-lg" alt="" />
+                    <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="rounded-lg" alt="" />
+                    <img src="https://images.unsplash.com/photo-1549476464-37392f717541?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="rounded-lg" alt="" />
+                    <img src="https://images.unsplash.com/photo-1606902965551-dce093cda6e7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGd5bXxlbnwwfDF8MHx8fDA%3D" className="rounded-lg" alt="" />
                 </div>
             </section>
 
@@ -244,7 +229,7 @@ const SingleUser = () => {
                 </div>
 
 
-                {/* <div className="relative overflow-x-auto sm:rounded-lg mb-10">
+                <div className="relative overflow-x-auto sm:rounded-lg mb-10">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500  ">
                         <caption>
                             <h3 className="mb-4 text-lg text-emerald-600 dark:text-slate-300">Meal 1</h3>
@@ -479,246 +464,8 @@ const SingleUser = () => {
                     </table>
                 </div>
 
-                <div className="relative overflow-x-auto sm:rounded-lg">
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500  ">
-                        <caption>
-                            <h3 className="mb-4 text-lg text-emerald-600 dark:text-slate-300">Meal 2</h3>
-                        </caption>
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50    ">
-                            <tr>
-                                <th scope="col" className="px-6 py-3">
-                                    Ingredients
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Protein
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Fat
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Carbs
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Calories
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Actions
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr className="bg-white border-b     hover:bg-gray-50  ">
-                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap  ">
-                                    <input disabled
-                                        value={"Banana 1/2 or Handful of Berries"}
-                                        className="outline-none p-1 w-auto"
-                                        type="text" name="" id="" />
-                                </th>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={1}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={0}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={13}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={60}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4 text-right">
-                                    <a href="#" className="font-medium text-blue-600 hover:underline">
-                                        <i className="ai ai-note-pencil mx-1"></i>
-                                    </a>
-                                    <a href="#" className="font-medium text-rose-500 hover:underline">
-                                        <i className="ai ai-trash-fill mx-1"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr className="bg-white border-b  hover:bg-gray-50  ">
-                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                    <input disabled
-                                        value={"Whey Protein 1/2 Scoop"}
-                                        className="outline-none p-1 w-auto"
-                                        type="text" name="" id="" />
-                                </th>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={12}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={0.7}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={1.2}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={60}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4 text-right">
-                                    <a href="#" className="font-medium text-blue-600   hover:underline">
-                                        <i className="ai ai-note-pencil mx-1"></i>
-                                    </a>
-                                    <a href="#" className="font-medium text-rose-500   hover:underline">
-                                        <i className="ai ai-trash-fill mx-1"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr className="bg-white border-b     hover:bg-gray-50  ">
-                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap  ">
-                                    <input disabled
-                                        value={"Almonds 10gm"}
-                                        className="outline-none p-1 w-auto"
-                                        type="text" name="" id="" />
-                                </th>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={2}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={5}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={3}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={62}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4 text-right">
-                                    <a href="#" className="font-medium text-blue-600   hover:underline">
-                                        <i className="ai ai-note-pencil mx-1"></i>
-                                    </a>
-                                    <a href="#" className="font-medium text-rose-500   hover:underline">
-                                        <i className="ai ai-trash-fill mx-1"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr className="bg-white border-b     hover:bg-gray-50  ">
-                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap  ">
-                                    <input disabled
-                                        value={"Walnuts 10gm"}
-                                        className="outline-none p-1 w-auto"
-                                        type="text" name="" id="" />
-                                </th>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={1.5}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={7}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={1.5}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4">
-                                    <input disabled
-                                        value={65}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </td>
-                                <td className="px-6 py-4 text-right">
-                                    <a href="#" className="font-medium text-blue-600   hover:underline">
-                                        <i className="ai ai-note-pencil mx-1"></i>
-                                    </a>
-                                    <a href="#" className="font-medium text-rose-500   hover:underline">
-                                        <i className="ai ai-trash-fill mx-1"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="pt-2">
-                                    <button className="bg-green-600 text-white rounded p-0.5 px-2 m-2">
-                                        <i className="ai ai-plus-bold  text-xs"></i> Add More
-                                    </button>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                        <tfoot>
-                            <tr className="bg-white border-b     hover:bg-gray-50  ">
-                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap  ">
-                                    <input disabled
-                                        value={"Total"}
-                                        className="outline-none p-1 w-auto"
-                                        type="text" name="" id="" />
-                                </th>
-                                <th className="px-6 py-4">
-                                    <input disabled
-                                        value={16.5}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </th>
-                                <th className="px-6 py-4">
-                                    <input disabled
-                                        value={12.7}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </th>
-                                <th className="px-6 py-4">
-                                    <input disabled
-                                        value={18.7}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </th>
-                                <th className="px-6 py-4">
-                                    <input disabled
-                                        value={247}
-                                        className="outline-none p-1 w-full"
-                                        type="number" name="" id="" />
-                                </th>
-
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div> */}
-
-
-
-                {recommendedMeal.map((meal, index) => (<Meal ingredients={meal.ingredients} addIngredients={addIngredients} index={index} updateIngredientsData={updateIngredientsData} />))}
                 
-
+                {recommendedMeal.map((meal, index) => (<Meal ingredients={meal.ingredients} addIngredients={addIngredients} index={index} updateIngredientsData={updateIngredientsData} />))}
 
                 <div className="sm:w-64">
                     <label htmlFor="meal" className="block text-sm font-medium text-gray-700">

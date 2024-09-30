@@ -2,10 +2,10 @@ import React from "react";
 
 const LineChartCard = () => {
   return (
-    <div className="mx-5 mt-5 w-96 rounded-lg bg-white p-6 shadow-lg">
+    <div className="mx-5 mt-5 w-full rounded-lg bg-white p-6 shadow-lg">
       <h2 className="mb-4 text-xl font-bold">Monthly User Growth</h2>
       <div className="mt-4 border-t border-gray-300"></div>
-      <div className="mt-4 flex items-center justify-between">
+      <div className="mt-4 flex flex-wrap items-center justify-between">
         <div className="text-gray-600">Jan</div>
         <div className="text-gray-600">Feb</div>
         <div className="text-gray-600">Mar</div>

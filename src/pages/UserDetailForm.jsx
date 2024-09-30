@@ -22,7 +22,6 @@ function Button({ onClick, text }) {
 function UserDetailForm() {
   const navigate = useNavigate();
   let location = useLocation();
-  console.log("location value  in the userDetailForm is", location.state.key);
 
   const handleBackButton = () => {
     toast.warn(
@@ -98,7 +97,6 @@ function UserDetailForm() {
     e.preventDefault();
     
     const completeUserData = {...location.state.key, ...formData}
-    console.log("complete user data is", completeUserData);
 
     const sendUserData = await fetch("https://dietician-engine.onrender.com/users/addUser",{
         method:"POST",

@@ -178,14 +178,6 @@ const ProfileCard = () => {
             </li>
             
           </ol>
-          <p className="md:line-clamp-3">
-            User generated content in real-time will have multiple touchpoints
-            for offshoring. Capitalize on low hanging fruit to identify a
-            ballpark value added activity to beta test. Override the digital
-            divide with additional click throughs from DevOps. Nanotechnology
-            immersion along the information highway will close the loop on
-            focusing solely on the bottom line.
-          </p>
         </div>
       </div>
     </div>

@@ -71,7 +71,7 @@ const MealTable = ({meal}) => {
 
 const Meals = () => {
 
-    const [meals, setMeals] = useState([])
+    const [meals, setMeals] = useState([])    
 
     useEffect(()=>{
         async function fetchData(){
@@ -87,13 +87,15 @@ const Meals = () => {
               })
 
               const jsonResponse = await response.json();
-              console.log("response is", jsonResponse);
+              console.log("User Diet", jsonResponse);
               setMeals(jsonResponse.data);
         }
 
         fetchData();
 
     },[])
+
+    console.log("meals", meals);
 
     return (
         <section className='mx-auto my-10 p-10 rounded-lg shadow-md  dark:bg-slate-950 dark:text-slate-300'>
@@ -211,11 +213,11 @@ const Meals = () => {
                 <aside className="px-8">
                     <h3 className="text-lg">Instructions:</h3>
                     <ol className="list-decimal my-4 text-slate-400 text-sm">
-                        <li>Lorem ipsum dolor  officia nesciunt laudantium ipsum dolor  officia nesciunt laudantium</li>
-                        <li>Lorem ipsum dolor  officia nesciunt laudantium ipsum dolor  officia nesciunt laudantium</li>
-                        <li>Lorem ipsum dolor  officia nesciunt laudantium ipsum dolor  officia nesciunt laudantium</li>
-                        <li>Lorem ipsum dolor  officia nesciunt laudantium ipsum dolor  officia nesciunt laudantium</li>
-                        <li>Lorem ipsum dolor  officia nesciunt laudantium ipsum dolor  officia nesciunt laudantium</li>
+                        <li>Define your goal, like weight loss or muscle gain, and tailor your diet accordingly.</li>
+                        <li>Include lean proteins, whole grains, veggies, and healthy fats in each meal.</li>
+                        <li>Use measuring tools to manage portions and avoid overeating.</li>
+                        <li>Drink at least 8 cups of water daily to support digestion and metabolism.</li>
+                        <li>Plan and cook meals ahead to stay consistent and avoid unhealthy choices.</li>
                     </ol>
                 </aside>
             </div>

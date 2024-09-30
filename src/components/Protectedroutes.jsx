@@ -8,9 +8,7 @@ export default function Protectedroutes({ children }){
     const currentPath = location.pathname.split("/")[1];
     console.log("current path in the protected route is", currentPath)
     const token = localStorage.getItem("dietToken");
-    console.log("token inside protectedroute is", token);
     const decoded = decodeJwt(token);
-    console.log("decoded jwt in the protected route is", decoded);
 
     switch(currentPath){
         case "dashboard":

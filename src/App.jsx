@@ -25,19 +25,19 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/auth/login" element={<Login />} />
-          <Route path="/auth/signup" element={<Signup />} />  
+          <Route path="/auth/signup" element={<Signup />} />
           <Route path="/UserDetailForm" element={<UserDetailForm />} />
           <Route path="/UserProfile" element={<UserProfile />} />
           <Route path="/UserProgress" element={<UserProgress />} />
           <Route path="/super" element={<AdminPanel />} />
           <Route path="/super/ut" element={<UserTicket />} />
           <Route path="/dashboard/admin" element={<Protectedroutes><Dashboard /></Protectedroutes>} >
-            <Route path="" element={<Protectedroutes><AdminHome/></Protectedroutes>} />
-            <Route path="users" element={<Protectedroutes><Users/></Protectedroutes>}/>
-            <Route path="users/:id" element={<Protectedroutes><SingleUser/></Protectedroutes>} />
-            <Route path="requests" element={<Protectedroutes><Requests/></Protectedroutes>} />
+            <Route path="" element={<Protectedroutes><AdminHome /></Protectedroutes>} />
+            <Route path="users" element={<Protectedroutes><Users /></Protectedroutes>} />
+            <Route path="users/:id" element={<Protectedroutes><SingleUser /></Protectedroutes>} />
+            <Route path="requests" element={<Protectedroutes><Requests /></Protectedroutes>} />
           </Route>
-          
+
           <Route path="/fitness" element={<Protectedroutes><FitnessCoach /></Protectedroutes>} />
 
         </Routes>

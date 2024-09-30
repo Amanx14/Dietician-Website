@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/giphy.gif";
 import { decodeJwt } from "../middelwares";
@@ -9,15 +9,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const token = localStorage.getItem("dietToken");
   const navigate = useNavigate();
-  console.log("token in navbar", token);
   const decoded = token && decodeJwt(token);
-  console.log("decoded in navbar", decoded);
 
   const logoutHandler = () => {
-    console.log("Inside the logout handler")
 
     const removingItem = localStorage.removeItem("dietToken");
-    console.log("removing item", removingItem);
     navigate("/");
   }
 
@@ -150,11 +146,6 @@ const Navbar = () => {
                               to={(decoded.userData.isUser) ? "/fitness" : "/dashboard/admin"}
                             >
                               {(decoded.userData.isUser) ? "Diets" : "AdminPanel"}
-                            </Link>
-                            <Link
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                            >
-                              Option 2
                             </Link>
 
                             <button className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left" onClick={logoutHandler}>Logout</button>

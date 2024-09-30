@@ -122,8 +122,7 @@ function Sidebar() {
   return (
     <nav
       className={
-      
-           "animate-slide relative z-10 min-h-svh max-w-80 bg-slate-950 text-white shadow-lg lg:sticky lg:left-0 lg:top-0 lg:animate-none"
+           "hidden animate-slide relative z-10 min-h-svh max-w-80 bg-slate-950 text-white shadow-l lg:h-full lg:block lg:sticky lg:left-0 lg:top-0 lg:animate-none"
           // "hidden min-h-svh max-w-80 rounded-3xl bg-white shadow-lg lg:sticky lg:left-0 lg:top-0 lg:block"
       }
     >

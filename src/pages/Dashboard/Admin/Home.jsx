@@ -1,9 +1,8 @@
-import React from "react";
 import { useSelector } from "react-redux";
-
+import LineChartCard from "./LineChartCard";
 
 const Home = () => {
-  const userCount = useSelector((state)=> state.allUser.userArr||[])
+  const userCount = useSelector((state) => state.allUser.userArr || [])
   console.log("userCount is ", typeof userCount, userCount)
   return (
     <>
@@ -53,6 +52,7 @@ const Home = () => {
 
         <section className="my-7 rounded-lg  bg-slate-950 p-20 shadow-md">
           <div className="text-center text-slate-400">User Growth Graph</div>
+          |<LineChartCard />
         </section>
 
         <section className="my-7 rounded-lg bg-slate-950 p-10 shadow-md">
@@ -79,10 +79,7 @@ const Home = () => {
 
                 <article className="px-4 pb-4">
                   <p className="text-sm">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    et ipsum sapien. Vestibulum molestie porttitor augue vitae
-                    vulputate. Aliquam nec ex maximus, suscipit diam vel,
-                    tristique tellus.
+                  Access to guides, eBooks, or other resources that provide in-depth information on various diet-related topics.
                   </p>
                 </article>
               </details>
@@ -108,10 +105,7 @@ const Home = () => {
 
                 <article className="px-4 pb-4">
                   <p className="text-sm">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    et ipsum sapien. Vestibulum molestie porttitor augue vitae
-                    vulputate. Aliquam nec ex maximus, suscipit diam vel,
-                    tristique tellus.{" "}
+                  Opportunities to participate in live or recorded classes to improve cooking skills and learn new recipes.
                   </p>
                 </article>
               </details>
@@ -137,10 +131,7 @@ const Home = () => {
 
                 <article className="px-4 pb-4">
                   <p className="text-sm">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    et ipsum sapien. Vestibulum molestie porttitor augue vitae
-                    vulputate. Aliquam nec ex maximus, suscipit diam vel,
-                    tristique tellus.{" "}
+                  One-on-one consultations or regular check-ins with certified dieticians.
                   </p>
                 </article>
               </details>
@@ -166,10 +157,7 @@ const Home = () => {
 
                 <article className="px-4 pb-4">
                   <p className="text-sm">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    et ipsum sapien. Vestibulum molestie porttitor augue vitae
-                    vulputate. Aliquam nec ex maximus, suscipit diam vel,
-                    tristique tellus.{" "}
+                    Customized meal plans tailored to your dietary needs and goals.
                   </p>
                 </article>
               </details>
